@@ -1,0 +1,12 @@
+<apex:page standardController="Contact" lightningStylesheets="true">
+    <apex:form>
+        <apex:pageBlock title="Feedback Details">
+            <apex:pageBlockSection>
+                <apex:inputField value="{!Contact.FirstName}"/>
+                <!--<apex:inputField value="{!Contact.Account}"/>-->
+                <apex:inputField value="{!Contact.Phone}"/>`     
+            </apex:pageBlockSection>
+            <apex:commandButton value="Save" action="{!save}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
