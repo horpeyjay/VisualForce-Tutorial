@@ -1,0 +1,48 @@
+<apex:page controller="CalculatorController">
+    <style>
+    <style>
+    .calculator {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        max-width: 200px;
+        margin: 20px auto;
+    }
+    .calculator-display {
+        grid-column: span 4;
+        background: #f0f0f0;
+        padding: 10px;
+        text-align: right;
+        font-size: 1.5rem;
+        border: 1px solid #ccc;
+    }
+    .calculator button {
+        font-size: 1.2rem;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        cursor: pointer;
+    }
+    .calculator button:hover {
+        background: #f9f9f9;
+    }
+</style>
+
+    </style>
+    <apex:form>
+        <apex:outputPanel styleClass="calculator" layout="block">
+            <!-- Display -->
+            <apex:outputText value="{!display}" styleClass="calculator-display" />
+
+            <!-- Buttons -->
+            <apex:repeat value="{!buttons}" var="btn">
+                <apex:commandButton value="{!btn}" action="{!processInput}" reRender="calculatorPanel">
+                    <apex:param name="input" value="{!btn}" assignTo="{!currentInput}" />
+                </apex:commandButton>
+            </apex:repeat>
+
+            <!-- Equals Button -->
+            <apex:commandButton value="=" action="{!calculate}" reRender="calculatorPanel" />
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>
